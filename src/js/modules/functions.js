@@ -136,7 +136,7 @@ export function swiperInit() {
 
 
 export function smoothScroll() {
-   const smoothCoef = 0.1;
+   const smoothCoef = 0.05;
    const smoothScroll = document.querySelector(".wrapper");
    const smoothScrollBar = document.querySelector(".smooth-scroll");
 
