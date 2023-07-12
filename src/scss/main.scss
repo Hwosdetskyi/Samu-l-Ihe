@@ -1,0 +1,44 @@
+.page {
+
+   &__main {
+   }
+}
+.main {
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   &__container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__title {
+      h1 {
+         color: #FCFAF8;
+         font-size: 13.7443rem;
+         line-height: 91.5%;
+         display: flex;
+         flex-direction: column;
+         p.first {
+            align-self: flex-start;
+         }
+         p.second {
+            align-self: flex-end;
+         }
+         span {
+            color: #14CF93;
+            font-style: italic;
+         }
+      }
+   }
+
+   &__subtitle {
+      max-width: 17.5rem;
+      p {
+         color: #FCFAF8;
+         font-size: 1.875rem;
+         line-height: 134%;
+      }
+   }
+}
