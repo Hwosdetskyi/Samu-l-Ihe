@@ -5,3 +5,5 @@ hwsdFunctions.isWebp();
 hwsdFunctions.smoothScroll();
 
 hwsdFunctions.scroolT();
+
+hwsdFunctions.spoller();
