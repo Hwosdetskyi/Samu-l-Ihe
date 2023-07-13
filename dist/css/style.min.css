@@ -95,15 +95,15 @@ body, body a, body p {
 
 @keyframes loadOp {
   0% {
-    transform: translateY(30%);
+    transform: translateY(2%);
     opacity: 0;
   }
   20% {
-    transform: translateY(30%);
+    transform: translateY(2%);
     opacity: 0;
   }
   40% {
-    transform: translateY(30%);
+    transform: translateY(2%);
     opacity: 0;
   }
   100% {
@@ -130,7 +130,13 @@ body, body a, body p {
 
 .page {
   flex: 1 1 auto;
+}
+.page.aditional {
   animation: loadOp 2.5s ease-out;
+}
+.page.aditional .aditional.unloaded {
+  transform: translateY(2%);
+  opacity: 0;
 }
 
 .header {
@@ -151,15 +157,15 @@ body, body a, body p {
 }
 @keyframes load {
   0% {
-    transform: translateY(-30%);
+    transform: translateY(-20%);
     opacity: 0;
   }
   20% {
-    transform: translateY(-30%);
+    transform: translateY(-20%);
     opacity: 0;
   }
   40% {
-    transform: translateY(-30%);
+    transform: translateY(-20%);
     opacity: 0;
   }
   100% {
@@ -168,7 +174,7 @@ body, body a, body p {
   }
 }
 .header__container .header__container.unloaded {
-  transform: translateY(-100%);
+  transform: translateY(-20%);
   opacity: 0;
 }
 @media (max-width: 1023.98px) {
@@ -354,6 +360,7 @@ body, body a, body p {
   animation: load 2.5s ease-out;
   position: absolute;
   width: 100%;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   padding-bottom: 10.625rem;
@@ -361,15 +368,15 @@ body, body a, body p {
 }
 @keyframes load {
   0% {
-    transform: translateY(30%);
+    transform: translateY(10%);
     opacity: 0;
   }
   20% {
-    transform: translateY(30%);
+    transform: translateY(10%);
     opacity: 0;
   }
   40% {
-    transform: translateY(30%);
+    transform: translateY(10%);
     opacity: 0;
   }
   100% {
@@ -378,7 +385,7 @@ body, body a, body p {
   }
 }
 .main__container.unloaded {
-  transform: translateY(30%);
+  transform: translateY(5%);
   opacity: 0;
 }
 @media (max-width: 1023.98px) {

@@ -14,15 +14,15 @@
       animation: load 2.5s ease-out;
       @keyframes load {
          0% {
-            transform: translateY(-30%);
+            transform: translateY(-20%);
             opacity: 0;
          }
          20% {
-            transform: translateY(-30%);
+            transform: translateY(-20%);
             opacity: 0;
          }
          40% {
-            transform: translateY(-30%);
+            transform: translateY(-20%);
             opacity: 0;
          }
          100% {
@@ -31,7 +31,7 @@
          }
        }
       .header__container.unloaded {
-         transform: translateY(-100%);
+         transform: translateY(-20%);
          opacity: 0;
       }
       @media(max-width: 1023.98px) {

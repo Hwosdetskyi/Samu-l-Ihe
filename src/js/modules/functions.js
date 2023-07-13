@@ -157,8 +157,12 @@ export function scroolT() {
 export function loader() {
    let text = document.querySelector(".main__container");
    let header = document.querySelector(".header__container");
+   let main = document.querySelector(".aditional");
    if (text) {
       text.classList.add("unloaded");
+   }
+   if (main) {
+      main.classList.add("unloaded");
    }
    if (header) {
       header.classList.add("unloaded");
@@ -174,8 +178,10 @@ export function loader() {
                text.classList.remove("unloaded");
             } else if (header) {
                header.classList.remove("unloaded");
-            }
             // mask.remove();
+            } if (main) {
+               main.classList.add("unloaded");
+            }
          }, 900)
       })
    })

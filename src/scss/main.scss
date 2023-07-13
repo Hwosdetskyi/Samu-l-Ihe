@@ -105,15 +105,15 @@
       animation: load 2.5s ease-out;
       @keyframes load {
          0% {
-            transform: translateY(30%);
+            transform: translateY(10%);
             opacity: 0;
          }
          20% {
-            transform: translateY(30%);
+            transform: translateY(10%);
             opacity: 0;
          }
          40% {
-            transform: translateY(30%);
+            transform: translateY(10%);
             opacity: 0;
          }
          100% {
@@ -122,11 +122,12 @@
          }
        }
       &.unloaded {
-         transform: translateY(30%);
+         transform: translateY(5%);
          opacity: 0;
       }
       position: absolute;
       width: 100%;
+      bottom: 0;
       display: flex;
       flex-direction: column;
       padding-bottom: 10.625rem;
