@@ -157,17 +157,26 @@ export function scroolT() {
 export function loader() {
    let text = document.querySelector(".main__container");
    let header = document.querySelector(".header__container");
-   text.classList.add("unloaded");
-   header.classList.add("unloaded");
-   let mask = document.querySelector(".loader");
+   if (text) {
+      text.classList.add("unloaded");
+   }
+   if (header) {
+      header.classList.add("unloaded");
+   }
+   let mask = document.querySelectorAll(".loader");
    let curY = window.scrollY;
    window.addEventListener('load', () => {
-      setTimeout(() => {
-         mask.style.top = curY;
-         mask.classList.add('hide');
-         text.classList.toggle("unloaded");
-         header.classList.toggle("unloaded");
-         // mask.remove();
-      }, 900)
+      mask.forEach(each => {
+         setTimeout(() => {
+            each.style.top = curY;
+            each.classList.add('hide');
+            if (text) {
+               text.classList.remove("unloaded");
+            } else if (header) {
+               header.classList.remove("unloaded");
+            }
+            // mask.remove();
+         }, 900)
+      })
    })
 }

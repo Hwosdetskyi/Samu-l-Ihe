@@ -93,6 +93,24 @@ body, body a, body p {
   }
 }
 
+@keyframes loadOp {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  40% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .wrapper {
   min-height: 100%;
   display: flex;
@@ -112,6 +130,7 @@ body, body a, body p {
 
 .page {
   flex: 1 1 auto;
+  animation: loadOp 2.5s ease-out;
 }
 
 .header {
@@ -132,15 +151,15 @@ body, body a, body p {
 }
 @keyframes load {
   0% {
-    transform: translateY(30%);
+    transform: translateY(-30%);
     opacity: 0;
   }
   20% {
-    transform: translateY(30%);
+    transform: translateY(-30%);
     opacity: 0;
   }
   40% {
-    transform: translateY(30%);
+    transform: translateY(-30%);
     opacity: 0;
   }
   100% {
@@ -148,7 +167,7 @@ body, body a, body p {
     opacity: 1;
   }
 }
-.header__container.unloaded {
+.header__container .header__container.unloaded {
   transform: translateY(-100%);
   opacity: 0;
 }
@@ -1177,6 +1196,7 @@ body, body a, body p {
 .loader.hide {
   height: 0;
   opacity: 0;
+  z-index: -22;
 }
 @media (prefers-color-scheme: light) {
   .loader {
@@ -1195,6 +1215,7 @@ body, body a, body p {
   color: #9c9c9c;
   font-size: 7.5rem;
   position: relative;
+  opacity: 0;
   animation: lod2 1s linear;
 }
 @media (max-width: 767.98px) {
@@ -1224,8 +1245,12 @@ body, body a, body p {
   }
 }
 @keyframes lod2 {
+  0% {
+    opacity: 1;
+  }
   50% {
     transform: scale(1);
+    opacity: 1;
   }
   60% {
     opacity: 1;

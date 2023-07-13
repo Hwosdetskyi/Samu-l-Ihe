@@ -36,6 +36,25 @@ body {
    }
 }
 
+@keyframes loadOp {
+   0% {
+      transform: translateY(30%);
+      opacity: 0;
+   }
+   20% {
+      transform: translateY(30%);
+      opacity: 0;
+   }
+   40% {
+      transform: translateY(30%);
+      opacity: 0;
+   }
+   100% {
+      transform: translateY(0);
+      opacity: 1;
+   }
+ }
+
 .wrapper {
    min-height: 100%;
    display: flex;
@@ -51,7 +70,10 @@ body {
    margin: 0px auto;
    padding: 0px 25px;
 }
-.page { flex: 1 1 auto }
+.page { 
+   flex: 1 1 auto;
+   animation: loadOp 2.5s ease-out;
+ }
 
 
 

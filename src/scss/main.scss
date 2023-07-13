@@ -890,6 +890,7 @@
    &.hide {
       height: 0;
       opacity: 0;
+      z-index: -22;
    }
    @media (prefers-color-scheme: light) {
       background-color: #FCFAF8;
@@ -907,6 +908,7 @@
       color: #9c9c9c;
       font-size: 7.5rem;
       position: relative;
+      opacity: 0;
       animation: lod2 1s linear;
       @media(max-width: 767.98px) {
          font-size: 3.75rem;
@@ -933,8 +935,12 @@
          }
        }
        @keyframes lod2 {
+         0% {
+            opacity: 1;
+         }
          50% {
             transform: scale(1);
+            opacity: 1;
          }
          60% {
             opacity: 1;
