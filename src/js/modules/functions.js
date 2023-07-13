@@ -87,17 +87,18 @@ export function smoothScroll() {
 
 
 
-export function parallaxText() {
-   let text = document.querySelector(".main__container");
-   if (!text) {
-      return;
-   }
+// export function parallaxText() {
+//    let text = document.querySelector(".main__container");
+//    text.style.marginTop = '180px'
+//    if (!text) {
+//       return;
+//    }
 
-   window.addEventListener('scroll', () => {
-      let value = window.scrollY;
-      text.style.marginTop = value * 0.3 + 'px';
-   });
-}
+//    window.addEventListener('scroll', () => {
+//       let value = window.scrollY;
+//       text.style.marginTop = text.style.marginTop + value * 0.3 + 'px';
+//    });
+// }
 
 
 
@@ -105,9 +106,9 @@ export function parallaxImg() {
    let image1 = document.querySelector(".image-first");
    let image3 = document.querySelector(".image-second");
    let image2 = document.querySelector(".image-third");
-   // if (!image1) {
-   //    return;
-   // }
+   if (!image1) {
+      return;
+   }
    window.addEventListener('scroll', () => {
       let value = window.scrollY;
       image1.style.top = value * 0.05 + 'px';
@@ -154,10 +155,19 @@ export function scroolT() {
 
 
 export function loader() {
+   let text = document.querySelector(".main__container");
+   let header = document.querySelector(".header__container");
+   text.classList.add("unloaded");
+   header.classList.add("unloaded");
    let mask = document.querySelector(".loader");
+   let curY = window.scrollY;
    window.addEventListener('load', () => {
       setTimeout(() => {
+         mask.style.top = curY;
          mask.classList.add('hide');
-      }, 3500)
+         text.classList.toggle("unloaded");
+         header.classList.toggle("unloaded");
+         // mask.remove();
+      }, 900)
    })
 }

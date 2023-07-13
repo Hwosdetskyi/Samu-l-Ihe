@@ -52,8 +52,8 @@
             opacity: 1;
          }
          .page__button-decor::after {
-            width: 4.0625rem;
-            height: 4.0625rem;
+            width: 3.125rem;
+            height: 3.125rem;
          }
       }
    }
@@ -89,7 +89,7 @@
 .main {
    min-height: 100vh;
    display: flex;
-   align-items: center;
+   align-items: end;
    justify-content: center;
    position: relative;
    overflow: hidden;
@@ -102,12 +102,38 @@
       padding-bottom: 10rem;
    }
    &__container {
-      width: 100%;
+      animation: load 2.5s ease-out;
+      @keyframes load {
+         0% {
+            transform: translateY(30%);
+            opacity: 0;
+         }
+         20% {
+            transform: translateY(30%);
+            opacity: 0;
+         }
+         40% {
+            transform: translateY(30%);
+            opacity: 0;
+         }
+         100% {
+            transform: translateY(0);
+            opacity: 1;
+         }
+       }
+      &.unloaded {
+         transform: translateY(30%);
+         opacity: 0;
+      }
       position: absolute;
+      width: 100%;
       display: flex;
       flex-direction: column;
+      padding-bottom: 10.625rem;
+      padding-top: 17.1875rem;
       @media(max-width: 1023.98px) {
          row-gap: 1.9375rem;
+         padding-top: 0;
       }
    }
 
@@ -854,8 +880,13 @@
    justify-content: center;
    align-items: center;
    background-color: #060606;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
    z-index: 200;
    transition: height 1s ease 0s;
+   overflow: hidden;
    &.hide {
       height: 0;
       opacity: 0;
@@ -874,9 +905,12 @@
       white-space: nowrap;
       text-align: center;
       color: #9c9c9c;
-      font-size: 120px;
+      font-size: 7.5rem;
       position: relative;
-      animation: lod2 4s linear;
+      animation: lod2 1s linear;
+      @media(max-width: 767.98px) {
+         font-size: 3.75rem;
+      }
       &::before {
          content: attr(data-text);
          position: absolute;
@@ -884,7 +918,7 @@
          left: 0;
          width: 100%;
          color: #FCFAF8;
-         animation: lod 2s linear;
+         animation: lod 0.5s linear;
          overflow: hidden;
        }
        @keyframes lod {
@@ -904,6 +938,10 @@
          }
          60% {
             opacity: 1;
+         }
+         90% {
+            transform: scale(5);
+            opacity: 0;
          }
          100% {
             transform: scale(5);

@@ -11,6 +11,29 @@
       align-items: center;
       padding-top: 3.1875rem;
       padding-bottom: 3.1875rem;
+      animation: load 2.5s ease-out;
+      @keyframes load {
+         0% {
+            transform: translateY(30%);
+            opacity: 0;
+         }
+         20% {
+            transform: translateY(30%);
+            opacity: 0;
+         }
+         40% {
+            transform: translateY(30%);
+            opacity: 0;
+         }
+         100% {
+            transform: translateY(0);
+            opacity: 1;
+         }
+       }
+      &.unloaded {
+         transform: translateY(-100%);
+         opacity: 0;
+      }
       @media(max-width: 1023.98px) {
          padding-top: 1.5625rem;
          padding-bottom: 1.5625rem;
