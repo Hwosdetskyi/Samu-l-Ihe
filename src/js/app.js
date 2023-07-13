@@ -7,3 +7,9 @@ hwsdFunctions.smoothScroll();
 hwsdFunctions.scroolT();
 
 hwsdFunctions.spoller();
+
+hwsdFunctions.parallaxText();
+
+hwsdFunctions.parallaxImg();
+
+hwsdFunctions.loader();

@@ -29,49 +29,57 @@
    }
 }
 .menu-header {
-
-   &__list {
-      display: flex;
-      align-items: center;
-      column-gap: 5.625rem;
-      @media(max-width: 1023.98px) {
-         column-gap: 2.8125rem;
-      }
-      @media(max-width: 767.98px) {
-         flex-direction: column;
-         align-items: end;
-      }
-   }
-
-   &__link {
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-      line-height: 115.5%;
-      padding: 0.2em 0;
-      @media(max-width: 1023.98px) {
-         font-size: 0.719rem;
-      }
-      &::after {
-         content: '';
-         position: absolute;
-         bottom: 0;
-         left: 0;
-         width: 100%;
-         height: 0.1em;
-         background-color: #FFFFFF;
-         opacity: 0;
-         transition: opacity 300ms, transform 300ms;
-         opacity: 0;
-         transform: translate3d(-100%, 0, 0);
-         @media (prefers-color-scheme: light) {
-            background-color: #383838;
+   &.simple,
+   &.other {
+      .menu-header{
+         &__list {
+            display: flex;
+            align-items: center;
+            column-gap: 5.625rem;
+            @media(max-width: 1023.98px) {
+               column-gap: 2.8125rem;
+            }
+            @media(max-width: 767.98px) {
+               flex-direction: column;
+               align-items: end;
+            }
          }
-      }  
-      &:hover::after,
-      &:focus::after{
-         opacity: 1;
-         transform: translate3d(0, 0, 0);
+
+         &__link {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            &.unvisible {
+               opacity: 0;
+               pointer-events: none;
+            }
+            line-height: 115.5%;
+            padding: 0.2em 0;
+            @media(max-width: 1023.98px) {
+               font-size: 0.719rem;
+            }
+            &::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               width: 100%;
+               height: 0.1em;
+               background-color: #FFFFFF;
+               opacity: 0;
+               transition: opacity 300ms, transform 300ms;
+               opacity: 0;
+               transform: translate3d(-100%, 0, 0);
+               @media (prefers-color-scheme: light) {
+                  background-color: #383838;
+               }
+            }  
+            &:hover::after,
+            &:focus::after{
+               opacity: 1;
+               transform: translate3d(0, 0, 0);
+            }
+         }
       }
    }
-}
+}  

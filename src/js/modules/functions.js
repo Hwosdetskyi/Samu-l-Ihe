@@ -87,43 +87,77 @@ export function smoothScroll() {
 
 
 
-export function scroolT() {
-   (function () {
+export function parallaxText() {
+   let text = document.querySelector(".main__container");
+   if (!text) {
+      return;
+   }
 
-      const smoothScroll = function (targetEl, duration) {
-         //  const headerElHeight =  document.querySelector('.header').clientHeight;
-          let target = document.querySelector(targetEl);
-          let targetPosition = target.getBoundingClientRect().top;
-          let startPosition = window.pageYOffset;
-          let startTime = null;
-      
-          const ease = function(t,b,c,d) {
-              t /= d / 2;
-              if (t < 1) return c / 2 * t * t + b;
-              t--;
-              return -c / 2 * (t * (t - 2) - 1) + b;
-          };
-      
-          const animation = function(currentTime){
-              if (startTime === null) startTime = currentTime;
-              const timeElapsed = currentTime - startTime;
-              const run = ease(timeElapsed, startPosition, targetPosition, duration);
-              window.scrollTo(0,run);
-              if (timeElapsed < duration) requestAnimationFrame(animation);
-          };
-          requestAnimationFrame(animation);
-  
+   window.addEventListener('scroll', () => {
+      let value = window.scrollY;
+      text.style.marginTop = value * 0.3 + 'px';
+   });
+}
+
+
+
+export function parallaxImg() {
+   let image1 = document.querySelector(".image-first");
+   let image3 = document.querySelector(".image-second");
+   let image2 = document.querySelector(".image-third");
+   // if (!image1) {
+   //    return;
+   // }
+   window.addEventListener('scroll', () => {
+      let value = window.scrollY;
+      image1.style.top = value * 0.05 + 'px';
+      image2.style.top = value * 0.05 + 'px';
+      image3.style.top = value * 0.05 + 'px';
+   });
+}
+
+
+
+export function scroolT() {
+   const smoothScroll = function (targetEl, duration) {
+      let target = document.querySelector(targetEl);
+      let targetPosition = target.getBoundingClientRect().top;
+      let startPosition = window.pageYOffset;
+      let startTime = null;
+      const ease = function(t,b,c,d) {
+         t /= d / 2;
+         if (t < 1) return c / 2 * t * t + b;
+         t--;
+         return -c / 2 * (t * (t - 2) - 1) + b;
       };
-  
-      const scrollTo = function () {
-          const links = document.querySelectorAll('.js-scroll');
-          links.forEach(each => {
-              each.addEventListener('click', function () {
-                  const currentTarget = this.getAttribute('href');
-                  smoothScroll(currentTarget, 200);
-              });
-          });
+      const animation = function(currentTime){
+         if (startTime === null) startTime = currentTime;
+         const timeElapsed = currentTime - startTime;
+         const run = ease(timeElapsed, startPosition, targetPosition, duration);
+         window.scrollTo(0,run);
+         if (timeElapsed < duration) requestAnimationFrame(animation);
       };
-      scrollTo();
-  }());
+      requestAnimationFrame(animation);
+   };
+   const scrollTo = function () {
+      const links = document.querySelectorAll('.js-scroll');
+      links.forEach(each => {
+         each.addEventListener('click', function () {
+            const currentTarget = this.getAttribute('href');
+            smoothScroll(currentTarget, 200);
+         });
+      });
+   };
+   scrollTo();
+};
+
+
+
+export function loader() {
+   let mask = document.querySelector(".loader");
+   window.addEventListener('load', () => {
+      setTimeout(() => {
+         mask.classList.add('hide');
+      }, 3500)
+   })
 }
