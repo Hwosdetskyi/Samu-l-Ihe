@@ -17,8 +17,11 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
-body {
+html {
    scroll-behavior: smooth;
+}
+
+body {
    background-color: #060606;
    &, a, p {
       font-family: 'DM Sans';
@@ -42,12 +45,6 @@ body {
    top: 0;
    left: 0;
    width: 100%;
-}
-.smooth-scroll {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 1px;
 }
 [class*="__container"]{
    max-width: 1800px;

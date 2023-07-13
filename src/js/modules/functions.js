@@ -1,4 +1,3 @@
-
 export function isWebp() {
   
    function testWebP(callback) {
@@ -25,112 +24,34 @@ export function isWebp() {
 
 
 
-export function burger() {
-   const iconMenu = document.querySelector('.menu__icon');
-   if (iconMenu){
-      const menuBody = document.querySelector('.menu__body');
-      iconMenu.addEventListener("click", function(e) {
-         document.body.classList.toggle('_lock')
-         iconMenu.classList.toggle('_active');
-         menuBody.classList.toggle('_active');
-      });
-   }
-}
-
-
-
-export function headerScroll() {
-   const header = document.querySelector('.header');
-   const headerCnt = document.querySelector('.header__container');
-   window.addEventListener('scroll', () => {
-      let scrollDistance = window.scrollY;
-      if (scrollDistance > 0) {
-         header.classList.add('_scroll');
-         headerCnt.classList.add('_scroll');
-      } else {
-         header.classList.remove('_scroll');
-         headerCnt.classList.remove('_scroll');
-      }
-   });
-}
-
-
-
 export function spoller() {
-   const spoilerContent = document.querySelectorAll(".accordeon");
+   function removeOpen(index1) {
+      spoilerContent.forEach((item2, index2) => {
+         if (index1 != index2) {
+            let spoilerBody = item2.querySelector(".accordeon-method__body");
+            let spoilerIcon = item2.querySelector(".accordeon-method__icon");
+            spoilerBody.classList.remove("_open");
+            spoilerIcon.classList.remove("_open");
+            spoilerBody.style.height = `0px`;
+         }
+      })
+   }
+   const spoilerContent = document.querySelectorAll(".accordeon-method");
    spoilerContent.forEach((item, index) => {
-      let spoilerButton = item.querySelector(".spec-menu__button");
+      let spoilerButton = item.querySelector(".accordeon-method__button");
+      let spoilerBody = item.querySelector(".accordeon-method__body");
+      let spoilerIcon = item.querySelector(".accordeon-method__icon");
       spoilerButton.addEventListener("click", () => {
-         spoilerButton.classList.toggle("_active");
-         let spoilerList = item.querySelector(".accordeon__list");
-         if (spoilerButton.classList.contains("_active")) {
-            spoilerList.style.height = `${spoilerList.scrollHeight}px`;
+         spoilerBody.classList.toggle("_open");
+         spoilerIcon.classList.toggle("_open");
+         if (spoilerBody.classList.contains("_open")) {
+            spoilerBody.style.height = `${spoilerBody.scrollHeight}px`;
          } else {
-            spoilerList.style.height = "0px"
+            spoilerBody.style.height = "0px"
          }
+         removeOpen(index);
       })
    })
-}
-
-
-
-export function arrow() {
-   let sublistItem = document.querySelectorAll(".menu__item");
-   let menu = document.querySelector(".menu__list");
-   sublistItem.forEach((item, index) => {
-      item.addEventListener("click", function(e) {
-         const isActive = item.classList.contains("_active");
-         sublistItem.forEach((item, index) => {
-            item.classList.remove("_active");
-         })
-         if (!isActive) {
-            item.classList.add("_active");
-         }
-      })
-   })
-   document.addEventListener("click", function(e) {
-      const target = e.target;
-      if (!menu.contains(target)) {
-        sublistItem.forEach((item, index) => {
-          item.classList.remove("_active");
-        });
-      }
-    });
-}
-
-
-
-export function swiperInit() {
-   const swiper = new Swiper('.swiper', {
-      // Налаштування Swiper
-      modules: [Navigation, Pagination, Autoplay],
-      pagination: {
-         el: '.swiper-pagination',
-         type: 'bullets',
-         clickable: true
-      },
-      autoHeight: true,
-      slidesPerView: 1,
-      spaceBetween: 30,
-      slidesPerGroup: 1,
-      autoplay: {
-         delay: 3000,
-         disableOnInteraction: false
-      },
-      speed: 900,
-      breakpoints: {
-         1250: {
-            slidesPerView: 3,
-            spaceBetween: 50,
-            slidesPerGroup: 3,
-         },
-         767: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-            slidesPerGroup: 2,
-         }
-      }
-   });
 }
 
 
@@ -162,4 +83,47 @@ export function smoothScroll() {
       requestAnimationFrame(loop);
    }
    requestAnimationFrame(loop);
+}
+
+
+
+export function scroolT() {
+   (function () {
+
+      const smoothScroll = function (targetEl, duration) {
+         //  const headerElHeight =  document.querySelector('.header').clientHeight;
+          let target = document.querySelector(targetEl);
+          let targetPosition = target.getBoundingClientRect().top;
+          let startPosition = window.pageYOffset;
+          let startTime = null;
+      
+          const ease = function(t,b,c,d) {
+              t /= d / 2;
+              if (t < 1) return c / 2 * t * t + b;
+              t--;
+              return -c / 2 * (t * (t - 2) - 1) + b;
+          };
+      
+          const animation = function(currentTime){
+              if (startTime === null) startTime = currentTime;
+              const timeElapsed = currentTime - startTime;
+              const run = ease(timeElapsed, startPosition, targetPosition, duration);
+              window.scrollTo(0,run);
+              if (timeElapsed < duration) requestAnimationFrame(animation);
+          };
+          requestAnimationFrame(animation);
+  
+      };
+  
+      const scrollTo = function () {
+          const links = document.querySelectorAll('.js-scroll');
+          links.forEach(each => {
+              each.addEventListener('click', function () {
+                  const currentTarget = this.getAttribute('href');
+                  smoothScroll(currentTarget, 200);
+              });
+          });
+      };
+      scrollTo();
+  }());
 }

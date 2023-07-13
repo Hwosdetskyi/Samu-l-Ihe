@@ -1,5 +1,9 @@
 .page {
 
+   &__method {
+      margin-top: 18.125rem;
+   }
+
    &__portfolio {
       padding-top: 8.0625rem;
    }
@@ -320,6 +324,9 @@
       h5 {
          font-size: 3.4375rem;
          line-height: 141%;
+         @media(max-width: 1439.98px) {
+            font-size: 2.1875rem;
+         }
       }
    }
 
@@ -343,32 +350,71 @@
 .top-portfolio {
 
    &__text {
+      @media(max-width: 767.98px) {
+         display: none;
+      }
       p {
          font-size: 1.875rem;
          // line-height: 141%;
+         @media(max-width: 1439.98px) {
+            font-size: 20px;
+         }
+         @media(max-width: 1023.98px) {
+            font-size: 12px;
+         }
       }
    }
 }
 .card-portfolio {
    padding: 4.5rem 5.3125rem;
    display: flex;
+   @media(max-width: 767.98px) {
+      padding: 4rem 4.6rem;
+   }
+   @media(max-width: 424.98px) {
+      padding: 3.5rem 3.5rem;
+   }
+   @media(max-width: 374.98px) {
+      padding: 3.5rem 2.4rem;
+   }
    transition: all 0.5s ease 0s;
    align-items: center;
    justify-content: space-between;
+   // column-gap: 3.125rem;
    border-bottom: 0.0625rem solid #14CF93;
    &__title {
+      flex: 1 1 auto;
       h6 {
          font-size: 5.625rem;
          line-height: 141%;
          transition: all 0.5s ease 0s;
+         @media(max-width: 1439.98px) {
+            font-size: 3.125rem;
+         }
+         @media(max-width: 1023.98px) {
+            font-size: 1.875rem;
+         }
+         @media(max-width: 767.98px) {
+            font-size: 15px;
+         }
       }
    }
 
    &__category {
       p {
+         text-align: end;
          font-size: 1.5625rem;
          line-height: 141%;
          transition: all 0.5s ease 0s;
+         @media(max-width: 1439.98px) {
+            font-size: 1.25rem;
+         }
+         @media(max-width: 1023.98px) {
+            font-size: 0.75rem;
+         }
+         @media(max-width: 767.98px) {
+            font-size: 8px;
+         }
       }
    }
 
@@ -376,6 +422,15 @@
       &:hover {
          .card-portfolio {
             padding: 4.5rem 4.0625rem;
+            @media(max-width: 767.98px) {
+               padding: 4rem 4.0625rem;
+            }
+            @media(max-width: 424.98px) {
+               padding: 3.5rem 2.75rem;
+            }
+            @media(max-width: 374.98px) {
+               padding: 3.5rem 2rem;
+            }
             &__title {
                h6 {
                   color: #bdbdbd;
@@ -399,6 +454,13 @@
          align-items: center;
          column-gap: 0.5rem;
          // line-height: 141%;
+         @media(max-width: 1439.98px) {
+            font-size: 1rem;
+            column-gap: 0.3rem;
+         }
+         @media(max-width: 1023.98px) {
+            font-size: 0.719rem;
+         }
          a {
             display: inline-block;
             position: relative;
@@ -428,6 +490,176 @@
                opacity: 1;
                transform: translate3d(0, 0, 0);
             }
+         }
+      }
+   }
+}
+
+//-----------------------------------------------------------------------
+
+.method {
+   padding-bottom: 1.25rem;
+   &__container {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 1.875rem;
+      @media(max-width: 1439.98px) {
+         flex-direction: column;
+         row-gap: 3.125rem;
+      }
+
+   }
+
+   &__text {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.25rem;
+   }
+
+   &__title {
+      max-width: 47.75rem;
+      h3 {
+         line-height: 108.5%;
+         @media (prefers-color-scheme: light) {
+            color: #383838;
+         }
+      }
+   }
+
+   &__paragraph {
+      max-width: 41.4375rem;
+      p {
+         font-size: 1.5625rem;
+         line-height: 141%;
+         @media(max-width: 1023.98px) {
+            font-size: 16px;
+         }
+      }
+   }
+
+   &__list {
+      display: flex;
+      max-width: 47.75rem;
+      flex-direction: column;
+      flex: 1 1 auto;
+   }
+
+   &__accordeon {
+      border-bottom: 0.0625rem solid #14CF93;
+   }
+}
+.accordeon-method {
+   padding-bottom: 1.1875rem;
+   padding-top: 2rem;
+   &:first-child {
+      .accordeon-method__title {
+         column-gap: 5rem;
+         @media(max-width: 1550px) {
+            column-gap: 3.625rem;
+         }  
+         @media(max-width: 767.98px) {
+            column-gap: 2.1875rem;
+         }
+         @media(max-width: 374.98px) {
+            column-gap: 0.9375rem;
+         }
+      }
+   }
+   &__button {
+      position: relative;
+      cursor: pointer;
+   }
+
+   &__title {
+      display: flex;
+      align-items: center;
+      column-gap: 4.5rem;
+      @media(max-width: 1550px) {
+         column-gap: 3.125rem;
+      }
+      @media(max-width: 767.98px) {
+         column-gap: 1.875rem;
+      }
+      @media(max-width: 374.98px) {
+         column-gap: 0.625rem;
+      }
+      p {
+         font-size: 2.625rem;
+         line-height: 108.5%;
+         @media(max-width: 767.98px) {
+            font-size: 1.2rem;
+         }
+      }
+   }
+
+   &__body {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      margin: 0 auto;
+      max-width: 31.25rem;
+      transition: all 0.5s ease 0s;
+      box-sizing: content-box;
+      @media(max-width: 767.98px) {
+         max-width: 18.75rem;
+      }
+      p {
+         font-size: 1.5625rem;
+         line-height: 141%;
+         @media(max-width: 767.98px) {
+            font-size: 0.875rem;
+         }
+      }
+   }
+
+   &__body._open {
+      opacity: 1;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+   }
+
+   &__icon {
+      &._open {
+         &::before {
+            opacity: 0;
+         }
+      }
+      &::after {
+         content: '';
+         position: absolute;
+         top: 50%;
+         right: 5%;
+         width: 1.875rem;
+         height: 0.125rem;
+         background-color: #FCFAF8;
+         @media(max-width: 424.98px) {
+            width: 1.25rem;
+         }
+         @media(max-width: 374.98px) {
+            width: 0.9375rem;
+         }
+         @media (prefers-color-scheme: light) {
+            background-color: #383838;
+         }
+      }
+      &::before {
+         content: '';
+         transition: opacity 0.5s ease 0s;
+         position: absolute;
+         top: 50%;
+         right: 5%;
+         transform: rotate(90deg);
+         width: 1.875rem;
+         height: 0.125rem;
+         background-color: #FCFAF8;
+         @media(max-width: 424.98px) {
+            width: 1.25rem;
+         }
+         @media(max-width: 374.98px) {
+            width: 0.9375rem;
+         }
+         @media (prefers-color-scheme: light) {
+            background-color: #383838;
          }
       }
    }
