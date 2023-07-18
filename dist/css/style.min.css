@@ -354,6 +354,11 @@ body, body a, body p {
 .page__method {
   margin-top: 18.125rem;
 }
+@media (max-width: 1439.98px) {
+  .page__method {
+    margin-top: 6.25rem;
+  }
+}
 .page__portfolio {
   padding-top: 8.0625rem;
 }

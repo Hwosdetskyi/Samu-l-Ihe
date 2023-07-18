@@ -2,6 +2,9 @@
 
    &__method {
       margin-top: 18.125rem;
+      @media(max-width: 1439.98px) {
+         margin-top: 6.25rem;
+      }
    }
 
    &__portfolio {
