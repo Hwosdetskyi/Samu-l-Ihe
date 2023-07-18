@@ -187,7 +187,7 @@ export function scroolT() {
 
 
 export function loader() {
-   let text = document.querySelector(".page");
+   let text = document.getElementById("about");
    let header = document.querySelector(".header__container");
    let main = document.querySelector(".aditional");
    if (text) {
