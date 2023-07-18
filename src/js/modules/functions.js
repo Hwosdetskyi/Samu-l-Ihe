@@ -61,7 +61,7 @@ export function smoothScroll() {
       return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
    } 
    if (hasTouchScreen()) {
-      const smoothCoef = 0.3;
+      const smoothCoef = 0.2;
       const smoothScroll = document.querySelector(".wrapper");
       const smoothScrollBar = document.querySelector(".smooth-scroll");
 
