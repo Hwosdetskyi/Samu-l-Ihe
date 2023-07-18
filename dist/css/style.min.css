@@ -96,6 +96,7 @@ html.light .canhelp__card:not(:last-child) .card-canhelp__cnt {
 @media (max-width: 767.98px) {
   html.light .canhelp__card:not(:last-child) .card-canhelp__cnt {
     border-bottom: 0.0625rem solid #000000;
+    border-right: none;
   }
 }
 html.light .bottom-portfolio__text p a::after {
@@ -131,6 +132,7 @@ html.dark:not(:last-child) .card-canhelp__cnt {
 @media (max-width: 767.98px) {
   html.dark:not(:last-child) .card-canhelp__cnt {
     border-bottom: 0.0625rem solid #14CF93;
+    border-right: none;
   }
 }
 html.dark .bottom-portfolio__text p a::after {
