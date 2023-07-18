@@ -178,6 +178,7 @@ body {
 .wrapper {
    min-height: 100%;
    display: flex;
+   position: relative;
    flex-direction: column;
    overflow: hidden;
    position: fixed;
