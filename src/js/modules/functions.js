@@ -138,9 +138,6 @@ export function parallaxImg() {
    let image1 = document.querySelector(".image-first");
    let image3 = document.querySelector(".image-second");
    let image2 = document.querySelector(".image-third");
-   let im1 = image1.style.top;
-   let im2 = image2.style.top;
-   let im3 = image3.style.top;
    if (!image1) {
       return;
    }
