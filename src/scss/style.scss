@@ -19,6 +19,126 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
 html {
    scroll-behavior: smooth;
+   &.light {
+      body {
+         background-color: #FCFAF8;
+         &, a, p {
+            color: #383838;
+         }
+      }
+      .footer__bottom{
+         border-top: 0.0625rem solid #333837;
+      }
+      .page__button {
+         p {
+            color: #FCFAF8;
+         }
+      }
+      .card-canhelp__title {
+         h4 {
+            color: #383838;
+         }
+      }
+      .canhelp__card{
+         &:not(:last-child) {
+            .card-canhelp__cnt{
+               border-right: 0.0625rem solid #000000;
+               @media(max-width: 767.98px) {
+                  border-bottom: 0.0625rem solid #000000;
+               }
+            }
+         }
+      }
+      .bottom-portfolio__text {
+         p {
+            a {
+               &::after {
+                  background-color: #383838;
+               }
+            }
+         }
+      }
+      .method__title {
+         h3 {
+            color: #383838;
+         }
+      }
+      .accordeon-method__icon::after,.accordeon-method__icon::before {
+         background-color: #383838;
+      }
+      .menu-header{
+         &.simple,
+         &.other {
+            .menu-header__link::after {
+               background-color: #383838;
+            }
+         }
+      }
+      .contacts-footer__item {
+         a::after {
+            background-color: #383838;
+         }
+      }
+   }
+   &.dark {
+      body {
+         background-color: #060606;
+         &, a, p {
+            color: #FCFAF8;
+         }
+      }
+      .footer__bottom{
+         border-top: 0.0625rem solid #FCFAF8;
+      }
+      // .page__button {
+      //    p {
+      //       color: #383838;
+      //    }
+      // }
+      .card-canhelp__title {
+         h4 {
+            color: #FCFAF8;
+         }
+      }
+      &:not(:last-child) {
+         .card-canhelp__cnt{
+            border-right: 0.0625rem solid #14CF93;
+            @media(max-width: 767.98px) {
+               border-bottom: 0.0625rem solid #14CF93;
+            }
+         }
+      }
+      .bottom-portfolio__text {
+         p {
+            a {
+               &::after {
+                  background-color: #FFFFFF;
+               }
+            }
+         }
+      }
+      .method__title {
+         h3 {
+            color: #FCFAF8;
+         }
+      }
+      .accordeon-method__icon::after,.accordeon-method__icon::before {
+         background-color: #FCFAF8;
+      }
+      .menu-header{
+         &.simple,
+         &.other {
+            .menu-header__link::after {
+               background-color: #FCFAF8;
+            }
+         }
+      }
+      .contacts-footer__item {
+         a::after {
+            background-color: #383838;
+         }
+      }
+   }
 }
 
 body {

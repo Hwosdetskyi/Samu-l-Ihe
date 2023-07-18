@@ -57,32 +57,64 @@ export function spoller() {
 
 
 export function smoothScroll() {
-   const smoothCoef = 0.05;
-   const smoothScroll = document.querySelector(".wrapper");
-   const smoothScrollBar = document.querySelector(".smooth-scroll");
+   function hasTouchScreen() {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+   } 
+   if (hasTouchScreen()) {
+      const smoothCoef = 0.3;
+      const smoothScroll = document.querySelector(".wrapper");
+      const smoothScrollBar = document.querySelector(".smooth-scroll");
 
-   function onResize(e) {
-      smoothScrollBar.style.height = smoothScroll.offsetHeight + "px";
-   }
+      function onResize(e) {
+         smoothScrollBar.style.height = smoothScroll.offsetHeight + "px";
+      }
 
-   window.addEventListener("resize", onResize);
-   onResize();
+      window.addEventListener("resize", onResize);
+      onResize();
 
-   let prevY = window.scrollY;
-   let curY = window.scrollY;
-   let y = window.scrollY;
-   let dy;
+      let prevY = window.scrollY;
+      let curY = window.scrollY;
+      let y = window.scrollY;
+      let dy;
 
-   function loop(now) {
-      curY = window.scrollY;
-      dy = curY - prevY;
-      y = Math.abs(dy) < 1 ? curY : y + dy * smoothCoef;
-      prevY = y;
-      smoothScroll.style.transform = `translate3d(0,${-y}px,0)`;
+      function loop(now) {
+         curY = window.scrollY;
+         dy = curY - prevY;
+         y = Math.abs(dy) < 1 ? curY : y + dy * smoothCoef;
+         prevY = y;
+         smoothScroll.style.transform = `translate3d(0,${-y}px,0)`;
 
+         requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+   } else {
+      const smoothCoef = 0.05;
+      const smoothScroll = document.querySelector(".wrapper");
+      const smoothScrollBar = document.querySelector(".smooth-scroll");
+
+      function onResize(e) {
+         smoothScrollBar.style.height = smoothScroll.offsetHeight + "px";
+      }
+
+      window.addEventListener("resize", onResize);
+      onResize();
+
+      let prevY = window.scrollY;
+      let curY = window.scrollY;
+      let y = window.scrollY;
+      let dy;
+
+      function loop(now) {
+         curY = window.scrollY;
+         dy = curY - prevY;
+         y = Math.abs(dy) < 1 ? curY : y + dy * smoothCoef;
+         prevY = y;
+         smoothScroll.style.transform = `translate3d(0,${-y}px,0)`;
+
+         requestAnimationFrame(loop);
+      }
       requestAnimationFrame(loop);
    }
-   requestAnimationFrame(loop);
 }
 
 
@@ -106,14 +138,17 @@ export function parallaxImg() {
    let image1 = document.querySelector(".image-first");
    let image3 = document.querySelector(".image-second");
    let image2 = document.querySelector(".image-third");
+   let im1 = image1.style.top;
+   let im2 = image2.style.top;
+   let im3 = image3.style.top;
    if (!image1) {
       return;
    }
    window.addEventListener('scroll', () => {
       let value = window.scrollY;
-      image1.style.top = value * 0.05 + 'px';
-      image2.style.top = value * 0.05 + 'px';
-      image3.style.top = value * 0.05 + 'px';
+      image1.style.transform = `translateY(${value * 0.02}px)`;
+      image2.style.transform = `translateY(${value * 0.02}px)`;
+      image3.style.transform = `translateY(${value * 0.02}px)`;
    });
 }
 
@@ -155,7 +190,7 @@ export function scroolT() {
 
 
 export function loader() {
-   let text = document.querySelector(".main__container");
+   let text = document.querySelector(".page");
    let header = document.querySelector(".header__container");
    let main = document.querySelector(".aditional");
    if (text) {
@@ -185,4 +220,54 @@ export function loader() {
          }, 900)
       })
    })
+}
+
+
+
+export function theme() {
+   window.addEventListener("load", windowLoad);
+
+   function windowLoad() {
+      const htmlBlock = document.documentElement;
+      const saveUserTheme = localStorage.getItem('user-theme');
+
+      let userTheme;
+      if (window.matchMedia) {
+         userTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+         !saveUserTheme ? changeTheme() : null;
+      });
+
+      let themeButton = document.querySelectorAll('.theme');
+      themeButton.forEach(each => {
+         if (each) {
+            each.addEventListener("click", function (e) {
+               changeTheme(true);
+            });
+         }
+         function setThemeClass() {
+            if (saveUserTheme) {
+               htmlBlock.classList.add(saveUserTheme)
+            } else {
+               htmlBlock.classList.add(userTheme);
+            }
+         }
+         setThemeClass();
+      });
+
+      function changeTheme(saveTheme = false) {
+         let currentTheme = htmlBlock.classList.contains('light') ? 'light' : 'dark';
+         let newTheme;
+
+         if (currentTheme === 'light') {
+            newTheme = 'dark';
+         } else if (currentTheme === 'dark') {
+            newTheme = 'light';
+         }
+         htmlBlock.classList.remove(currentTheme);
+         htmlBlock.classList.add(newTheme);
+         saveTheme ? localStorage.setItem('user-theme', newTheme) : null;
+      }
+   }
 }

@@ -11,3 +11,5 @@ hwsdFunctions.spoller();
 hwsdFunctions.parallaxImg();
 
 hwsdFunctions.loader();
+
+hwsdFunctions.theme();
