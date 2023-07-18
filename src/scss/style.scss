@@ -85,6 +85,15 @@ html {
             background-color: #383838;
          }
       }
+      .loader {
+         background-color: #FCFAF8;
+         h1 {
+            color: #808080;
+            &::before {
+               color: #000000;
+            }
+         }
+      }
    }
    &.dark {
       body {
@@ -95,6 +104,15 @@ html {
       }
       .footer__bottom{
          border-top: 0.0625rem solid #FCFAF8;
+      }
+      .loader {
+         background-color: #060606;
+         h1 {
+            color: #9c9c9c;
+            &::before {
+               color: #FCFAF8;
+            }
+         }
       }
       // .page__button {
       //    p {

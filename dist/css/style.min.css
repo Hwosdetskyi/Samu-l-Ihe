@@ -117,6 +117,15 @@ html.light .menu-header.simple .menu-header__link::after, html.light .menu-heade
 html.light .contacts-footer__item a::after {
   background-color: #383838;
 }
+html.light .loader {
+  background-color: #FCFAF8;
+}
+html.light .loader h1 {
+  color: #808080;
+}
+html.light .loader h1::before {
+  color: #000000;
+}
 html.dark body {
   background-color: #060606;
 }
@@ -125,6 +134,15 @@ html.dark body, html.dark body a, html.dark body p {
 }
 html.dark .footer__bottom {
   border-top: 0.0625rem solid #FCFAF8;
+}
+html.dark .loader {
+  background-color: #060606;
+}
+html.dark .loader h1 {
+  color: #9c9c9c;
+}
+html.dark .loader h1::before {
+  color: #FCFAF8;
 }
 html.dark .card-canhelp__title h4 {
   color: #FCFAF8;
