@@ -1253,6 +1253,12 @@ html.light .darkbut {
   scale: 1.15;
   object-fit: cover;
 }
+@media (max-width: 1023.98px) {
+  .main-sneakers-page__img img {
+    scale: 1.6;
+    top: 0;
+  }
+}
 
 .individual__text {
   display: flex;
@@ -1284,6 +1290,12 @@ html.light .darkbut {
   width: 100%;
   scale: 1.15;
   object-fit: cover;
+}
+@media (max-width: 1023.98px) {
+  .individual__image img {
+    scale: 1.6;
+    top: 0;
+  }
 }
 
 .aditional-page__category span {
@@ -1372,6 +1384,12 @@ html.light .darkbut {
   width: 100%;
   scale: 1.15;
   object-fit: cover;
+}
+@media (max-width: 1023.98px) {
+  .mywork__image img {
+    scale: 1.4;
+    top: 0;
+  }
 }
 
 .loader {

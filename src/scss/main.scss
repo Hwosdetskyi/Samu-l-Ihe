@@ -832,6 +832,10 @@ html.light{
          width: 100%;
          scale: 1.15;
          object-fit: cover;
+         @media(max-width: 1023.98px) {
+            scale: 1.6;
+            top: 0;
+         }
       }
    }
 }
@@ -866,6 +870,10 @@ html.light{
          width: 100%;
          scale: 1.15;
          object-fit: cover;
+         @media(max-width: 1023.98px) {
+            scale: 1.6;
+            top: 0;
+         }
       }
    }
 }
@@ -950,6 +958,10 @@ html.light{
          width: 100%;
          scale: 1.15;
          object-fit: cover;
+         @media(max-width: 1023.98px) {
+            scale: 1.4;
+            top: 0;
+         }
       }
    }
 }
