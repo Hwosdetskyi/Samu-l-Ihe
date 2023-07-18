@@ -487,7 +487,7 @@ html.light .darkbut {
   display: none;
 }
 
-.main__container {
+.page-index {
   animation: load 2.5s ease-out;
 }
 @keyframes load {
@@ -508,44 +508,11 @@ html.light .darkbut {
     opacity: 1;
   }
 }
-.main__container.unloaded {
+.page-index.unloaded {
   transform: translateY(3%);
   opacity: 0;
 }
 
-@media (max-width: 1023.98px) {
-  .content {
-    margin-top: 100vh;
-  }
-  .main-content {
-    min-height: 100vh;
-    width: 100%;
-    position: absolute;
-    animation: load 2.5s ease-out;
-  }
-  @keyframes load {
-    0% {
-      transform: translateY(3%);
-      opacity: 0;
-    }
-    20% {
-      transform: translateY(3%);
-      opacity: 0;
-    }
-    40% {
-      transform: translateY(3%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  .main-content.unloaded {
-    transform: translateY(3%);
-    opacity: 0;
-  }
-}
 .main {
   min-height: 100vh;
   display: flex;
