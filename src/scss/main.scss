@@ -17,6 +17,9 @@
          color: #FCFAF8;
          font-size: 4.375rem;
          line-height: 141%;
+         @media (prefers-color-scheme: light) {
+            color: #383838;
+         }
          @media(max-width: 1023.98px) {
             font-size: 2.5rem;
          }

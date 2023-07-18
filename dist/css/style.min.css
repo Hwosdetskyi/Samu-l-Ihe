@@ -99,6 +99,9 @@ html.light .canhelp__card:not(:last-child) .card-canhelp__cnt {
     border-right: none;
   }
 }
+html.light .page__titles h3 {
+  color: #383838;
+}
 html.light .bottom-portfolio__text p a::after {
   background-color: #383838;
 }
@@ -124,6 +127,9 @@ html.dark .footer__bottom {
   border-top: 0.0625rem solid #FCFAF8;
 }
 html.dark .card-canhelp__title h4 {
+  color: #FCFAF8;
+}
+html.dark .page__titles h3 {
   color: #FCFAF8;
 }
 html.dark:not(:last-child) .card-canhelp__cnt {
@@ -358,6 +364,11 @@ body, body a, body p {
   color: #FCFAF8;
   font-size: 4.375rem;
   line-height: 141%;
+}
+@media (prefers-color-scheme: light) {
+  .page__titles h3 {
+    color: #383838;
+  }
 }
 @media (max-width: 1023.98px) {
   .page__titles h3 {
