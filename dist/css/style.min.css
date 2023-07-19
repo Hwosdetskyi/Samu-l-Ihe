@@ -172,7 +172,7 @@ html.dark .menu-header.simple .menu-header__link::after, html.dark .menu-header.
   background-color: #FCFAF8;
 }
 html.dark .contacts-footer__item a::after {
-  background-color: #383838;
+  background-color: #FCFAF8;
 }
 
 body {
